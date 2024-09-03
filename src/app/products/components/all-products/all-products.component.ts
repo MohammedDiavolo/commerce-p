@@ -63,11 +63,4 @@ export class AllProductsComponent implements OnInit {
     );
   }
 
-  trackByCategoryId(index: number, category: Category): number {
-    return category.id; // Ensure this is the correct unique identifier for categories
-  }
-
-  trackByProductId(index: number, product: Product): number {
-    return product.id; // Ensure this is the correct unique identifier for products
-  }
 }

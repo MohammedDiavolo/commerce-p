@@ -1,12 +1,13 @@
 <div class="my-2">
   <Label for="" class="my-1">Categories</Label>
   <select class="form-control custom-select">
-    <option value="">Home</option>
+    <option value="">all</option>
   @for (item of dataCategory; track item.id) {
-    <option value="1">{{item.title}}</option>
+    <option value="{{item}}">{{item}}</option>
   }
   </select>
 </div>
+
 <div class="row">
   @for (item of data; track item.id) {
     <div class="col-md-3 col-sm-6 mb-4 product-box-wrapper">
