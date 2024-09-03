@@ -1,12 +1,11 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Category, Product } from '../../mode/products';
-
+import { ProductsService } from '../../services/products.service';
 @Component({
   selector: 'app-all-product',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: '../all-products/all-products.component.html',
   styleUrls: ['../all-products/all-products.component.scss']
 })
@@ -14,55 +13,42 @@ export class AllProductsComponent implements OnInit {
   data: Product[] = [];
   dataCategory: Category[] = [];
 
-  private baseUrl: string = 'https://fakestoreapi.com/products';
-  private baseUrlCategory: string = 'https://fakestoreapi.com/products/categories';
-  _http = inject(HttpClient);
 
-  constructor() {}
+  constructor(private readonly _service:ProductsService) {}
 
   ngOnInit(): void {
     this.getAllProducts();
-    this.getOneItem(1);
     this.getAllCategory();
-    this.getOneCategory(1);
-    console.log("Test");
   }
 
   getAllProducts() {
-    this._http.get<Product[]>(this.baseUrl).subscribe((response: Product[]) => {
-      console.log(response);
+    this._service.getAllProducts().subscribe((response:any)=>{
       this.data = response;
-    });
+      console.log(response)
+
+    })
   }
 
-  getAllCategory() {
-    this._http.get<Category[]>(this.baseUrlCategory).subscribe((response: Category[]) => {
-      console.log(response);
+  getAllCategory(){
+    this._service.getAllCategory().subscribe((response:any) => {
       this.dataCategory = response;
-    });
+      console.log(response);
+    })
   }
 
-  getOneItem(id:number){
-    this._http.get(`${this.baseUrl}/${id}`).subscribe(
-      (response:any)=>{
-        console.log(response);
-        this.data = response;
-      } , error => {
-        console.log(error.message)
-      }
-    );
-  }
-  getOneCategory(id:number){
-    this._http.get(`${this.baseUrlCategory}/${id}`).subscribe(
-      (response:any)=>{
-        console.log(response);
-        this.dataCategory = response;
-      } , error => {
-        console.log(error.message)
-      }
-    );
+  filterCategory(event:any){
+    let value = event.target.value;
+    console.log(value);
+    if(value == "all"){
+      this.getAllProducts();
+    } else{
+      this.getProductsCategory(value);
+    }
   }
 
-  
-
+  getProductsCategory(keyword:string) {
+    this._service.getProductByCategory(keyword).subscribe((res:any) =>{
+      this.data = res
+    })
+  }
 }
