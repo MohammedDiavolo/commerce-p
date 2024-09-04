@@ -26,4 +26,7 @@ getProductByCategory(keyword:string){
   return this._http.get(`${this.baseUrl}/products/category/${keyword}`)
 }
 
+getProductById(id:any){
+  return this._http.get(`${this.baseUrl}/products/${id}`)
+}
 }
