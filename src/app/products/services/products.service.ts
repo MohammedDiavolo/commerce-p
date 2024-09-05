@@ -10,7 +10,7 @@ data: any[] = [];
 dataCategory: any[] = [];
 
 
-private baseUrl: any = 'https://fakestoreapi.com';
+private baseUrl: any = ' https://api.escuelajs.co/api/v1';
 
 constructor( ) {}
 
@@ -23,7 +23,7 @@ getAllCategory() {
 }
 
 getProductByCategory(keyword:string){
-  return this._http.get(`${this.baseUrl}/products/category/${keyword}`)
+  return this._http.get(`${this.baseUrl}/products/categories/${keyword}`)
 }
 
 getProductById(id:any){
