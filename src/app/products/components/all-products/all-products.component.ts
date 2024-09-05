@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Category, Product } from '../../mode/products';
+//import { Category, Product } from '../../mode/products';
 import { ProductsService } from '../../services/products.service';
 import { SelectComponent } from "../../../shared/components/select/select.component";
 import { ProductComponent } from "../product/product.component";
-import { ThisReceiver } from '@angular/compiler';
+import { Category, Product } from '../../models/products';
+
 @Component({
   selector: 'app-all-product',
   standalone: true,
@@ -29,15 +30,12 @@ export class AllProductsComponent implements OnInit {
   getAllProducts() {
     this._service.getAllProducts().subscribe((response:any)=>{
       this.data = response;
-      // console.log(response)
-
     })
   }
 
   getAllCategory(){
     this._service.getAllCategory().subscribe((response:any) => {
       this.dataCategory = response;
-      // console.log(response);
     })
   }
 
@@ -57,20 +55,24 @@ export class AllProductsComponent implements OnInit {
     })
   }
   addToCart(event: any) {
-    if("cart" in localStorage){
-      this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
-      // let exist = this.cartProducts.find(item => item.id == event.id)
-      // if(exist){
-      //   alert("product is already added")
-      // } else {
-        this.cartProducts.push(event)
-        localStorage.setItem("cart",JSON.stringify(this.cartProducts))
-     // }
+    event.quantity = 1;
+    if ("cart" in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
+
+      const exist = this.cartProducts.find(item => item.id === event.id);
+
+      if (exist) {
+        alert("Product is already in the cart.");
+      } else {
+        this.cartProducts.push(event);
+        localStorage.setItem("cart", JSON.stringify(this.cartProducts));
+      }
 
     } else {
-      this.cartProducts.push(event)
-      localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+      this.cartProducts = [event];
+      localStorage.setItem("cart", JSON.stringify(this.cartProducts));
     }
   }
+
 
 }
