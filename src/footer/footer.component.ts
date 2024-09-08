@@ -10,5 +10,4 @@ import { AppComponent } from '../app/app.component';
 })
 export class FooterComponent {
   @Input() title: string = '';
-  ssa
 }
