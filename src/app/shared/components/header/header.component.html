@@ -1,7 +1,50 @@
-  <header class="header">
+  <header class="header" *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
     <div class="container">
         <div class="logo">
-            <a href="" routerLink="/">FutureTech</a>
+            <a href="" routerLink="/">{{title}}</a>
+        </div>
+        <div class="search-bar">
+            <div class="input-container">
+                <input type="text" class="input-text" placeholder="Search products...">
+                <div class="input-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="cart-icon">
+                <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
+            </div>
+            <div class="sign-in">
+                <a href="" routerLink="/login"><button class="btn btn-primary">Sign In</button></a>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <header class="header" *ngIf="isAdminLoggedIn">
+    <div class="container">
+        <div class="logo">
+            <a href="" routerLink="/">{{title}}</a>
+        </div>
+        <div class="header-right">
+            <div class="dashboard">
+              <a href="" routerLink="/admin/dashboard">Dashborad</a>
+            </div>
+            <div class="cart-icon">
+                <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
+            </div>
+            <div class="sign-in">
+                <a href="" routerLinkActive="active" (click)="logout()"><button class="btn btn-primary">Sign In</button></a>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <header class="header" *ngIf="isCustomerLoggedIn">
+    <div class="container">
+        <div class="logo">
+            <a href="" routerLink="/">{{title}}</a>
         </div>
         <div class="search-bar">
             <div class="input-container">

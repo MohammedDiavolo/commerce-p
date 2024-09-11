@@ -1,15 +1,16 @@
+
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent,FooterComponent,HttpClientModule,FormsModule,NgIf],
+  imports: [RouterOutlet, HeaderComponent,HttpClientModule,FormsModule,NgIf,FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

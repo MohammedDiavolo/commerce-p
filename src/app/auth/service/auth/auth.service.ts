@@ -1,0 +1,39 @@
+import { UserStorageService } from './../storage/user-storage.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
+
+const base_url = 'https://fakestoreapi.com/'
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  constructor(private _http: HttpClient,
+    private userStorageService : UserStorageService
+  ) {}
+
+  register(signupRequest: any): Observable<any> {
+    return this._http.post(`${base_url}users`, signupRequest);
+  }
+
+  login(username:string, password: string): any{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = { username, password };
+
+    return this._http.post(`${base_url}auth/login`,body, {headers, observe: 'response'}).pipe(
+      map((res) => {
+        const token = res.headers.get('authorization').substring(7);
+        const user = res.body;
+        if(token && user){
+          this.userStorageService.saveToken(token);
+          this.userStorageService.saveUser(user);
+          return true;
+        }
+        return false;
+      })
+    )
+
+  }
+}
