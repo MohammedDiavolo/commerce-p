@@ -12,7 +12,7 @@ dataCategory: any[] = [];
 
 private baseUrl: any = 'https://fakestoreapi.com';
 
-constructor( ) {}
+constructor() {}
 
 getAllProducts(){
   return this._http.get(`${this.baseUrl}/products`)

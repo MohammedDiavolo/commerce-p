@@ -1,0 +1,73 @@
+<div class="container">
+  <main>
+    <section class="checkout">
+      <h2>Checkout</h2>
+      <div class="steps">
+        <span class="active">Payment</span>
+      </div>
+
+      <div class="payment-section">
+        <div class="payment-options">
+          <button class="paypal-btn">PayPal</button>
+          <button class="credit-card-btn">Credit Card</button>
+        </div>
+
+        <div class="payment-details">
+          <form>
+            <label for="cardholder-name">Cardholder Name</label>
+            <input type="text" id="cardholder-name" placeholder="Cardholder Name" formControlName="cardholderName">
+
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="Card Number" formControlName="cardNumber">
+
+            <div class="expiration-cvc">
+              <div>
+                <label for="exp-month">Month</label>
+                <select id="exp-month" formControlName="expMonth">
+                  <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+                </select>
+              </div>
+              <div>
+                <label for="exp-year">Year</label>
+                <select id="exp-year" formControlName="expYear">
+                  <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                </select>
+              </div>
+              <div>
+                <label for="cvc">CVC</label>
+                <input type="text" id="cvc" placeholder="CVC" formControlName="cvc">
+              </div>
+            </div>
+
+            <div class="save-card">
+              <label>
+                <input type="checkbox" formControlName="saveCard"> Save card data for future payments
+              </label>
+            </div>
+
+            <button type="submit" class="pay-btn">Pay with card</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="open">
+    <button id="mycart" (click)="toggleCart()">
+      <h2>Show your cart</h2>
+    </button>
+  </div>
+
+  <div class="cart">
+    <i class="close fa-solid fa-x" (click)="toggleCart()"></i>
+    <h1>Your Cart</h1>
+    <div class="closecart">
+      <ul class="listcart">Product</ul>
+      <div class="cartTotal">
+        <div class="total-title">Total</div>
+        <div class="total">0</div>
+        <button class="buybtn">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

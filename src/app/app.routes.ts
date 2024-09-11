@@ -5,6 +5,10 @@ import { AllProductsComponent } from './products/components/all-products/all-pro
 import { LoginComponent } from './auth/components/login/login/login.component';
 import { SignupComponent } from './auth/components/signup/signup/signup.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
+import { CategoryComponent } from './admin/components/category/category/category.component';
+import { UpdateProductComponent } from './admin/components/update-product/update-product.component';
+import { PostProductComponent } from './admin/components/postProduct/post-product/post-product.component';
+import { CheckOutComponent } from './user/components/check-out/check-out.component';
 
 export const routes: Routes = [
   {
@@ -36,5 +40,25 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     title: 'Dashboard-page'
+  },
+  {
+    path:'category',
+    component:CategoryComponent,
+    title:'Category-page'
+  },
+  {
+    path:'product',
+    component:PostProductComponent,
+    title:'Product-page'
+  },
+  {
+    path:'proudct/:productId',
+    component:UpdateProductComponent,
+    title:'Update-page'
+  },
+  {
+    path:'checkout',
+    component:CheckOutComponent,
+    title:'Checkout-page'
   }
 ];

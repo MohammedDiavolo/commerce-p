@@ -15,7 +15,7 @@ export class UserStorageService {
     window.localStorage.setItem(TOKEN, token);
   }
 
-  public saveUser(user): void {
+  public saveUser(user: any): void {
     window.localStorage.removeItem(USER);
     window.localStorage.setItem(USER, JSON.stringify(user));
   }
@@ -45,10 +45,10 @@ export class UserStorageService {
     return !!token && role === 'ADMIN';
   }
 
-  static isCustomerLoggedIn(): boolean {
+  static isUserLoggedIn(): boolean {
     const token = this.getToken();
     const role = this.getUserRole();
-    return !!token && role === 'CUSTOMER';
+    return !!token && role === 'USER';
   }
 
   static signOut(): void {

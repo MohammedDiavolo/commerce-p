@@ -1,66 +1,81 @@
-  <header class="header" *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
-    <div class="container">
-        <div class="logo">
-            <a href="" routerLink="/">{{title}}</a>
-        </div>
-        <div class="search-bar">
-            <div class="input-container">
-                <input type="text" class="input-text" placeholder="Search products...">
-                <div class="input-icon">
-                    <i class="bi bi-search"></i>
-                </div>
-            </div>
-        </div>
-        <div class="header-right">
-            <div class="cart-icon">
-                <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
-            </div>
-            <div class="sign-in">
-                <a href="" routerLink="/login"><button class="btn btn-primary">Sign In</button></a>
-            </div>
-        </div>
+<header class="main-header" *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
+  <div class="header-container">
+    <div class="header-logo">
+      <a href="" routerLink="/">{{title}}</a>
     </div>
-  </header>
+    <div class="header-search-bar">
+      <div class="search-input-container">
+        <input type="text" class="search-input-text" placeholder="Search products...">
+        <div class="search-input-icon">
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav-bar">
+      <a href="" routerLink="/dashboard">Dashboard</a>
+    </div>
+    <div class="header-nav-bar">
+      <a href="" routerLink="/category">Category</a>
+    </div>
+    <div class="header-nav-bar">
+      <a href="" routerLink="/product">Product</a>
+    </div>
+    <div class="header-right-section">
+      <div class="cart-icon">
+        <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
+      </div>
+      <div class="sign-in-btn">
+        <a href="" routerLink="/login"><button class="btn btn-primary">Sign In</button></a>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <header class="header" *ngIf="isAdminLoggedIn">
-    <div class="container">
-        <div class="logo">
-            <a href="" routerLink="/">{{title}}</a>
-        </div>
-        <div class="header-right">
-            <div class="dashboard">
-              <a href="" routerLink="/admin/dashboard">Dashborad</a>
-            </div>
-            <div class="cart-icon">
-                <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
-            </div>
-            <div class="sign-in">
-                <a href="" routerLinkActive="active" (click)="logout()"><button class="btn btn-primary">Sign In</button></a>
-            </div>
-        </div>
+<header class="main-header" *ngIf="isAdminLoggedIn">
+  <div class="header-container">
+    <div class="header-logo">
+      <a href="" routerLink="/">{{title}}</a>
     </div>
-  </header>
+    <div class="header-right-section">
+      <div class="admin-dashboard">
+        <a href="" routerLink="/admin/dashboard">Dashboard</a>
+      </div>
+      <div class="header-nav-bar">
+        <a href="" routerLink="/category">Category</a>
+      </div>
+      <div class="header-nav-bar">
+        <a href="" routerLink="/product">Product</a>
+      </div>
+      <div class="cart-icon">
+        <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
+      </div>
+      <div class="logout-btn">
+        <a href="" routerLinkActive="active" (click)="logout()"><button class="btn btn-primary">Log out</button></a>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <header class="header" *ngIf="isCustomerLoggedIn">
-    <div class="container">
-        <div class="logo">
-            <a href="" routerLink="/">{{title}}</a>
-        </div>
-        <div class="search-bar">
-            <div class="input-container">
-                <input type="text" class="input-text" placeholder="Search products...">
-                <div class="input-icon">
-                    <i class="bi bi-search"></i>
-                </div>
-            </div>
-        </div>
-        <div class="header-right">
-            <div class="cart-icon">
-                <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
-            </div>
-            <div class="sign-in">
-                <a href="" routerLink="/login"><button class="btn btn-primary">Sign In</button></a>
-            </div>
-        </div>
+<header class="main-header" *ngIf="isCustomerLoggedIn">
+  <div class="header-container">
+    <div class="header-logo">
+      <a href="" routerLink="/">{{title}}</a>
     </div>
-  </header>
+    <div class="header-search-bar">
+      <div class="search-input-container">
+        <input type="text" class="search-input-text" placeholder="Search products...">
+        <div class="search-input-icon">
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
+    </div>
+    <div class="header-right-section">
+      <div class="cart-icon">
+        <a href="" routerLink="/cart"><i class="bi bi-cart"></i></a>
+      </div>
+      <div class="logout-btn">
+        <a href="" routerLinkActive="active" (click)="logout()"><button class="btn btn-primary">Log out</button></a>
+      </div>
+    </div>
+  </div>
+</header>

@@ -29,7 +29,12 @@ export class AppComponent {
         }
       });
       this.router.events.subscribe((event: any) => {
-        if (event.url === '/login'|| event.url === '/cart'|| event.url ==='/signup') {
+        if (event.url === '/login'||
+            event.url === '/cart'||
+            event.url ==='/signup'||
+            event.url ==='/category'||
+            event.url ==='/product'||
+            event.url === '/checkout') {
           this.showLayout = false;
         } else {
           this.showLayout = true;

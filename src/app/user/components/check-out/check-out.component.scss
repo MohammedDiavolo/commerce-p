@@ -1,0 +1,140 @@
+
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.checkout {
+  width: 65%;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.steps span {
+  padding: 10px 20px;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.steps .active {
+  border-bottom: 2px solid #0070ba;
+}
+
+.payment-section {
+  border: 1px solid #eaeaea;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.payment-options button {
+  width: 48%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0070ba;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.payment-options .credit-card-btn {
+  background-color: #eaeaea;
+  color: #333;
+}
+
+.payment-details form {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-details input,
+.payment-details select {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+}
+
+.expiration-cvc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expiration-cvc div {
+  width: 30%;
+}
+
+.save-card {
+  margin-bottom: 10px;
+}
+
+.pay-btn {
+  background-color: #0070ba;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cart {
+  background-color: #0070ba;
+  color: white;
+  text-align: center;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  padding: 2rem;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  right: 100%;
+  height: 100%;
+  transition: right 0.4s ease;
+}
+
+.active .cart {
+  right: 0;
+}
+
+.cart i:hover {
+  color: red;
+  cursor: pointer;
+  transform: scale(1.4);
+  transition: 0.3s ease;
+}
+
+.cart button {
+  width: 6rem;
+  border-radius: 3rem;
+  border: 0;
+  outline: 0;
+}
+
+.cart button:hover {
+  color: rgb(28, 38, 168);
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+.open {
+  position: fixed;
+  top: 300px;
+  right: 70px;
+}
+
+.open button {
+  background-color: #0070ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.open button:hover {
+  background-color: #005bb5;
+}

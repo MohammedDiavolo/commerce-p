@@ -1,21 +1,25 @@
 <div class="center-wrapper">
-  <form class="login-box" [formGroup]="loginForm">
+  <form class="login-box" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h2 class="text-center">Login</h2>
+
     <div class="form-group">
       <label for="username">Username</label>
-      <input matInput formControlName="username" class="form-control" placeholder="Enter username">
+      <input formControlName="username" type="text" class="form-control" id="username" placeholder="Enter username">
       <div class="error" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
-          Please enter a valid Username.
+        Please enter a valid username.
       </div>
     </div>
+
     <div class="form-group">
       <label for="password">Password</label>
-      <input matInput formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
+      <input formControlName="password" type="password" class="form-control" id="password" placeholder="Enter password">
       <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-        Please enter a valid Password.
+        Please enter a valid password.
       </div>
     </div>
-    <button class="btn btn-primary btn-block" type="submit" [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">Login</button>
+
     <p class="text-center mt-3">
       Don't have an account? <a routerLink="/signup">Sign up</a>
     </p>
