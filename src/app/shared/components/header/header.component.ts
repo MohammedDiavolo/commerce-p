@@ -19,11 +19,11 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.isCustomerLoggedIn = UserStorageService.isUserLoggedIn();
+    this.isCustomerLoggedIn = UserStorageService.isCustomerLoggedIn();
     this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
 
     this.router.events.subscribe(() => {
-      this.isCustomerLoggedIn = UserStorageService.isUserLoggedIn();
+      this.isCustomerLoggedIn = UserStorageService.isCustomerLoggedIn();
       this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
     });
   }
