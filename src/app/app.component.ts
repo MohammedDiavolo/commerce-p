@@ -34,7 +34,8 @@ export class AppComponent {
             event.url ==='/signup'||
             event.url ==='/category'||
             event.url ==='/product'||
-            event.url === '/checkout') {
+            event.url === '/checkout'||
+            event.url === '/order') {
           this.showLayout = false;
         } else {
           this.showLayout = true;

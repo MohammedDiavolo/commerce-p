@@ -6,7 +6,6 @@ import { LoginComponent } from './auth/components/login/login/login.component';
 import { SignupComponent } from './auth/components/signup/signup/signup.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
 import { CategoryComponent } from './admin/components/category/category/category.component';
-import { UpdateProductComponent } from './admin/components/update-product/update-product.component';
 import { PostProductComponent } from './admin/components/postProduct/post-product/post-product.component';
 import { CheckOutComponent } from './user/components/check-out/check-out.component';
 import { OrdersComponent } from './admin/components/orders/orders.component';
@@ -53,13 +52,13 @@ export const routes: Routes = [
     title:'Product-page'
   },
   {
-    path:'proudct/:productId',
-    component:UpdateProductComponent,
-    title:'Update-page'
-  },
-  {
     path:'checkout',
     component:CheckOutComponent,
     title:'Checkout-page'
+  },
+  {
+    path:'order',
+    component:OrdersComponent,
+    title:'Order-page'
   }
 ];

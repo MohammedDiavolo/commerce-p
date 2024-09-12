@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th>Tracking ID</th>
+            <th>User Name</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.id}}</td>
+            <td>{{ order.title}}</td>
+            <td class="bold-cell">{{ order.amount }}</td>
+            <td>{{ order.description }}</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.date }}</td>
+            <td>{{ order.status }}</td>
+            <td>
+              <button class="action-button" (click)="toggleMenu($event)">Action</button>
+              <div class="menu" [ngStyle]="{'display': menuDisplay}">
+                <button class="menu-item" (click)="performAction('shipped')">Shipped</button>
+                <button class="menu-item" (click)="performAction('delivered')">Delivered</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

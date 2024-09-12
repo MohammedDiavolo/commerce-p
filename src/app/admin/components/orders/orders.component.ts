@@ -3,37 +3,35 @@ import { Component } from '@angular/core';
 import { AdminService } from '../../service/admin.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [NgFor,NgStyle],
+  imports: [NgFor, NgStyle],
   templateUrl: './orders.component.html',
-  styleUrl: './orders.component.scss'
+  styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent {
-menuDisplay: any;
-performAction(arg0: string) {
-throw new Error('Method not implemented.');
-}
-toggleMenu($event: MouseEvent) {
-throw new Error('Method not implemented.');
-}
+  menuDisplay: string = 'none';
+  orders: any;
 
-  orders : any;
+  constructor(private adminservice: AdminService, private snackBar: MatSnackBar) {}
 
-  constructor(private adminservice: AdminService,
-    private snackBar: MatSnackBar){
-
-    }
-
-  ngOnInit(){
+  ngOnInit() {
     this.getPlaceOrders();
   }
-  getPlaceOrders(){
-    this.adminservice.getpPlacedOrders().subscribe(res =>{
+
+  getPlaceOrders() {
+    this.adminservice.getpPlacedOrders().subscribe(res => {
       this.orders = res;
-    })
+    });
   }
 
+  performAction(action: string) {
+    console.log(`Action performed: ${action}`);
+    // Add logic to handle the action, e.g., updating the order status
+  }
+
+  toggleMenu(event: MouseEvent) {
+    this.menuDisplay = this.menuDisplay === 'none' ? 'block' : 'none';
+  }
 }
