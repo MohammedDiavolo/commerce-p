@@ -1,27 +1,17 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 main {
   display: flex;
   justify-content: space-between;
-  padding: 40px;
+  padding: 40px 0;
 }
 
 .checkout {
-  width: 65%;
-}
-
-.steps {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-
-.steps span {
-  padding: 10px 20px;
-  border-bottom: 2px solid #eaeaea;
-}
-
-.steps .active {
-  border-bottom: 2px solid #0070ba;
+  width: 100%;
 }
 
 .payment-section {
@@ -61,10 +51,15 @@ main {
 .expiration-cvc {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .expiration-cvc div {
-  width: 30%;
+  width: calc(33.33% - 10px);
+}
+
+.cvc input {
+  width: 100%;
 }
 
 .save-card {
@@ -90,12 +85,12 @@ main {
   width: 300px;
   position: fixed;
   top: 0;
-  right: 100%;
+  right: -100%;
   height: 100%;
   transition: right 0.4s ease;
 }
 
-.active .cart {
+.cart.active {
   right: 0;
 }
 
@@ -119,12 +114,6 @@ main {
   transition: 0.3s ease;
 }
 
-.open {
-  position: fixed;
-  top: 300px;
-  right: 70px;
-}
-
 .open button {
   background-color: #0070ba;
   color: white;
@@ -137,4 +126,16 @@ main {
 
 .open button:hover {
   background-color: #005bb5;
+}
+
+.img-thumbnail {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.cart-btn{
+  padding: 20px;
+  border-radius: 12px;
 }

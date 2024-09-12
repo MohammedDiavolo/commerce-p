@@ -1,11 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [NgFor,FormsModule],
+  imports: [NgFor,FormsModule,RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
