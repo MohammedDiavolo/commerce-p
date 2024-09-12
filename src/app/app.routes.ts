@@ -61,10 +61,5 @@ export const routes: Routes = [
     path:'checkout',
     component:CheckOutComponent,
     title:'Checkout-page'
-  },
-  {
-    path: 'orders',
-    component:OrdersComponent,
-    title:'Orders-Page'
   }
 ];

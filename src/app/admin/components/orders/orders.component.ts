@@ -1,5 +1,8 @@
 import { NgFor, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
+import { AdminService } from '../../service/admin.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-orders',
@@ -9,5 +12,28 @@ import { Component } from '@angular/core';
   styleUrl: './orders.component.scss'
 })
 export class OrdersComponent {
+menuDisplay: any;
+performAction(arg0: string) {
+throw new Error('Method not implemented.');
+}
+toggleMenu($event: MouseEvent) {
+throw new Error('Method not implemented.');
+}
+
+  orders : any;
+
+  constructor(private adminservice: AdminService,
+    private snackBar: MatSnackBar){
+
+    }
+
+  ngOnInit(){
+    this.getPlaceOrders();
+  }
+  getPlaceOrders(){
+    this.adminservice.getpPlacedOrders().subscribe(res =>{
+      this.orders = res;
+    })
+  }
 
 }
