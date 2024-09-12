@@ -9,6 +9,7 @@ import { CategoryComponent } from './admin/components/category/category/category
 import { UpdateProductComponent } from './admin/components/update-product/update-product.component';
 import { PostProductComponent } from './admin/components/postProduct/post-product/post-product.component';
 import { CheckOutComponent } from './user/components/check-out/check-out.component';
+import { OrdersComponent } from './admin/components/orders/orders.component';
 
 export const routes: Routes = [
   {
@@ -60,5 +61,10 @@ export const routes: Routes = [
     path:'checkout',
     component:CheckOutComponent,
     title:'Checkout-page'
-  }
+  },
+  {
+    path:'orders',
+    component:OrdersComponent,
+    title:'Orders-page'
+  },
 ];
